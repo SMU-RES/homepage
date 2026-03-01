@@ -12,18 +12,18 @@ const state = {
       tags: ["选课通", "动态站", "静态站", "课程评价", "教师评价"],
     },
   ],
-}
+};
 
-const searchForm = document.querySelector("#searchForm")
-const searchInput = document.querySelector("#searchInput")
-const resourceGrid = document.querySelector("#resourceGrid")
-const resultCount = document.querySelector("#resultCount")
-const template = document.querySelector("#resourceCardTemplate")
-const installBtn = document.querySelector("#installBtn")
+const searchForm = document.querySelector("#searchForm");
+const searchInput = document.querySelector("#searchInput");
+const resourceGrid = document.querySelector("#resourceGrid");
+const resultCount = document.querySelector("#resultCount");
+const template = document.querySelector("#resourceCardTemplate");
+const installBtn = document.querySelector("#installBtn");
 
 function getFilteredResources() {
-  const keyword = state.keyword.trim().toLowerCase()
-  if (!keyword) return state.resources
+  const keyword = state.keyword.trim().toLowerCase();
+  if (!keyword) return state.resources;
 
   return state.resources.filter((resource) => {
     const haystack = [
@@ -34,93 +34,94 @@ function getFilteredResources() {
       ...(resource.tags || []),
     ]
       .join(" ")
-      .toLowerCase()
-    return haystack.includes(keyword)
-  })
+      .toLowerCase();
+    return haystack.includes(keyword);
+  });
 }
 
 function renderResources() {
-  const filtered = getFilteredResources()
-  resultCount.textContent = `共 ${filtered.length} 项`
-  resourceGrid.innerHTML = ""
+  const filtered = getFilteredResources();
+  resultCount.textContent = `共 ${filtered.length} 项`;
+  resourceGrid.innerHTML = "";
 
   if (filtered.length === 0) {
-    const empty = document.createElement("div")
-    empty.className = "empty"
-    empty.textContent = "未找到匹配资源，请调整搜索关键词。"
-    resourceGrid.append(empty)
-    return
+    const empty = document.createElement("div");
+    empty.className = "empty";
+    empty.textContent = "未找到匹配资源，请调整搜索关键词。";
+    resourceGrid.append(empty);
+    return;
   }
 
   for (const resource of filtered) {
-    const card = template.content.firstElementChild.cloneNode(true)
-    card.querySelector(".resource-title").textContent = resource.title
-    card.querySelector(".resource-desc").textContent = resource.description
+    const card = template.content.firstElementChild.cloneNode(true);
+    card.querySelector(".resource-title").textContent = resource.title;
+    card.querySelector(".resource-desc").textContent = resource.description;
 
-    const note = card.querySelector(".resource-note")
+    const note = card.querySelector(".resource-note");
     note.innerHTML = `
       <p>${resource.noteDynamic}</p>
       <p>${resource.noteStatic}</p>
-    `
+    `;
 
-    const [dynamicBtn, staticBtn] = card.querySelectorAll(".site-btn")
-    dynamicBtn.href = resource.dynamicUrl
-    staticBtn.href = resource.staticUrl
+    const dynamicBtn = card.querySelector(".dynamic-btn");
+    const staticBtn = card.querySelector(".static-btn");
+    dynamicBtn.href = resource.dynamicUrl;
+    staticBtn.href = resource.staticUrl;
 
-    resourceGrid.append(card)
+    resourceGrid.append(card);
   }
 }
 
 function bindSearch() {
   searchForm.addEventListener("submit", (event) => {
-    event.preventDefault()
-    state.keyword = searchInput.value
-    renderResources()
-  })
+    event.preventDefault();
+    state.keyword = searchInput.value;
+    renderResources();
+  });
 
   searchInput.addEventListener("input", () => {
-    state.keyword = searchInput.value
-    renderResources()
-  })
+    state.keyword = searchInput.value;
+    renderResources();
+  });
 }
 
 function registerServiceWorker() {
-  if (!("serviceWorker" in navigator)) return
+  if (!("serviceWorker" in navigator)) return;
   window.addEventListener("load", () => {
     navigator.serviceWorker.register("./service-worker.js").catch((error) => {
-      console.error("service worker 注册失败:", error)
-    })
-  })
+      console.error("service worker 注册失败:", error);
+    });
+  });
 }
 
 function setupInstallPrompt() {
-  let deferredPrompt = null
+  let deferredPrompt = null;
 
   window.addEventListener("beforeinstallprompt", (event) => {
-    event.preventDefault()
-    deferredPrompt = event
-    installBtn.hidden = false
-  })
+    event.preventDefault();
+    deferredPrompt = event;
+    installBtn.hidden = false;
+  });
 
   installBtn.addEventListener("click", async () => {
-    if (!deferredPrompt) return
-    deferredPrompt.prompt()
-    await deferredPrompt.userChoice
-    deferredPrompt = null
-    installBtn.hidden = true
-  })
+    if (!deferredPrompt) return;
+    deferredPrompt.prompt();
+    await deferredPrompt.userChoice;
+    deferredPrompt = null;
+    installBtn.hidden = true;
+  });
 
   window.addEventListener("appinstalled", () => {
-    deferredPrompt = null
-    installBtn.hidden = true
-  })
+    deferredPrompt = null;
+    installBtn.hidden = true;
+  });
 }
 
 function boot() {
-  bindSearch()
-  renderResources()
-  registerServiceWorker()
-  setupInstallPrompt()
+  bindSearch();
+  renderResources();
+  registerServiceWorker();
+  setupInstallPrompt();
 }
 
-boot()
+boot();

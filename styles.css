@@ -106,11 +106,20 @@ body {
     border-radius: 999px;
     background: rgba(255, 255, 255, 0.14);
     color: #fff;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
     text-decoration: none;
     font-size: 13px;
     font-weight: 600;
     padding: 8px 12px;
     white-space: nowrap;
+}
+
+.github-icon {
+    width: 14px;
+    height: 14px;
+    flex-shrink: 0;
 }
 
 .github-link:hover {
@@ -239,24 +248,24 @@ body {
 }
 
 .dynamic-btn {
-    background: var(--primary);
-    color: #fff;
-    box-shadow: 0 6px 14px rgba(26, 86, 219, 0.26);
-}
-
-.dynamic-btn:hover {
-    background: var(--primary-dark);
-}
-
-.static-btn {
     background: #f0f4ff;
     color: #1e4080;
     border-color: #cbd8f8;
 }
 
-.static-btn:hover {
+.dynamic-btn:hover {
     background: #e5eeff;
     box-shadow: 0 6px 14px rgba(32, 67, 140, 0.13);
+}
+
+.static-btn {
+    background: var(--primary);
+    color: #fff;
+    box-shadow: 0 6px 14px rgba(26, 86, 219, 0.26);
+}
+
+.static-btn:hover {
+    background: var(--primary-dark);
 }
 
 .empty {
