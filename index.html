@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#1a56db" />
+    <meta name="description" content="上海海事大学常用资源导航页，支持安装为桌面应用（PWA）。" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="海大资源站" />
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <link rel="icon" href="./icons/icon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="./icons/icon.svg" />
+    <link rel="stylesheet" href="./styles.css" />
+    <title>海大资源站</title>
+  </head>
+  <body>
+    <div class="app">
+      <header class="app-bar">
+        <div class="app-bar-inner">
+          <h1>海大资源站</h1>
+          <button id="installBtn" class="install-btn" hidden>安装应用</button>
+        </div>
+      </header>
+
+      <main class="main-content">
+        <section class="hero-card">
+          <p class="hero-badge">SMU Resource Hub</p>
+          <h2>上海海事大学导航页</h2>
+          <p>
+            课程、教务、图书馆、校园服务入口聚合。支持安装到桌面/主屏幕，离线可打开首页。
+          </p>
+
+          <form id="searchForm" class="search-card" autocomplete="off">
+            <label class="sr-only" for="searchInput">搜索资源</label>
+            <input
+              id="searchInput"
+              type="search"
+              placeholder="搜索资源名、关键词（如 教务 / 图书馆 / 选课）"
+            />
+            <button type="submit">搜索</button>
+          </form>
+        </section>
+
+        <section class="category-section">
+          <div class="section-head">
+            <h3>分类筛选</h3>
+            <p>支持鼠标滚轮横向滚动</p>
+          </div>
+          <div id="categoryRail" class="category-rail" aria-label="资源分类"></div>
+        </section>
+
+        <section class="resource-section">
+          <div class="section-head">
+            <h3>资源列表</h3>
+            <p id="resultCount"></p>
+          </div>
+          <div id="resourceGrid" class="resource-grid"></div>
+        </section>
+      </main>
+
+      <footer class="app-footer">
+        <p>海大资源站 · GPLv3 · 仅聚合公开入口，具体服务以学校官方页面为准。</p>
+      </footer>
+    </div>
+
+    <template id="resourceCardTemplate">
+      <article class="resource-card">
+        <div class="resource-meta">
+          <span class="resource-category"></span>
+        </div>
+        <h4 class="resource-title"></h4>
+        <p class="resource-desc"></p>
+        <a class="resource-link" target="_blank" rel="noopener noreferrer">打开入口</a>
+      </article>
+    </template>
+
+    <script src="./app.js" defer></script>
+  </body>
+</html>

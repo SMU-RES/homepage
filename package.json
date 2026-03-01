@@ -1,0 +1,11 @@
+{
+  "name": "smu-resource-hub",
+  "version": "0.1.0",
+  "private": true,
+  "description": "海大资源站（PWA 导航页脚手架）",
+  "license": "GPL-3.0",
+  "scripts": {
+    "dev": "npx wrangler pages dev . --compatibility-date 2025-01-01",
+    "deploy": "npx wrangler pages deploy . --project-name=smu-resource-hub"
+  }
+}
