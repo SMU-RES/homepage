@@ -1,4 +1,4 @@
-const CACHE_NAME = "smures-v2";
+const CACHE_NAME = "smures-v4";
 const SHELL_FILES = [
   "./",
   "./index.html",
@@ -6,7 +6,6 @@ const SHELL_FILES = [
   "./app.js",
   "./manifest.webmanifest",
   "./icons/avatar.jpg",
-  "./icons/maskable.svg",
 ];
 
 self.addEventListener("install", (event) => {
