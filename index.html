@@ -6,22 +6,33 @@
         <meta name="theme-color" content="#1a56db" />
         <meta
             name="description"
-            content="上海海事大学常用资源导航页，支持安装为桌面应用（PWA）。"
+            content="上海海事大学常用资源站点入口，支持 PWA 安装。"
         />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-        <meta name="apple-mobile-web-app-title" content="海大资源站" />
+        <meta name="apple-mobile-web-app-title" content="资源站" />
         <link rel="manifest" href="./manifest.webmanifest" />
         <link rel="icon" href="./icons/avatar.jpg" type="image/jpeg" />
         <link rel="apple-touch-icon" href="./icons/avatar.jpg" />
         <link rel="stylesheet" href="./styles.css" />
-        <title>海大资源站</title>
+        <title>资源站</title>
     </head>
     <body>
         <div class="app">
             <header class="app-bar">
                 <div class="app-bar-inner">
-                    <h1>海大资源站</h1>
+                    <h1>资源站</h1>
+                    <form id="searchForm" class="top-search" autocomplete="off">
+                        <label for="searchInput" class="sr-only"
+                            >搜索资源</label
+                        >
+                        <span class="search-icon" aria-hidden="true">🔎</span>
+                        <input
+                            id="searchInput"
+                            type="search"
+                            placeholder="搜索资源（如 选课通 / 动态站 / 静态站）"
+                        />
+                    </form>
                     <button id="installBtn" class="install-btn" hidden>
                         安装应用
                     </button>
@@ -29,61 +40,9 @@
             </header>
 
             <main class="main-content">
-                <section class="hero-card">
-                    <p class="hero-badge">SMU Resource Hub</p>
-                    <h2>上海海事大学导航页</h2>
-                    <p>
-                        当前仅收录海大选课通的两个页面，后续再逐步扩展更多校园资源入口。
-                    </p>
-
-                    <form
-                        id="searchForm"
-                        class="search-card"
-                        autocomplete="off"
-                    >
-                        <label class="sr-only" for="searchInput"
-                            >搜索资源</label
-                        >
-                        <input
-                            id="searchInput"
-                            type="search"
-                            placeholder="搜索资源名、关键词（如 教务 / 图书馆 / 选课）"
-                        />
-                        <button type="submit">搜索</button>
-                    </form>
-
-                    <div class="scope-note">
-                        <p class="scope-note-title">选课通页面说明</p>
-                        <ul>
-                            <li>
-                                动态站：
-                                <strong>可评论、可评分</strong
-                                >，用于发布和参与课程/教师评价。
-                            </li>
-                            <li>
-                                静态站：
-                                <strong>只读查询</strong
-                                >，加载更稳，不提供评论和评分入口。
-                            </li>
-                        </ul>
-                    </div>
-                </section>
-
-                <section class="category-section">
-                    <div class="section-head">
-                        <h3>分类筛选</h3>
-                        <p>支持鼠标滚轮横向滚动</p>
-                    </div>
-                    <div
-                        id="categoryRail"
-                        class="category-rail"
-                        aria-label="资源分类"
-                    ></div>
-                </section>
-
                 <section class="resource-section">
                     <div class="section-head">
-                        <h3>资源列表</h3>
+                        <h2>已收录资源</h2>
                         <p id="resultCount"></p>
                     </div>
                     <div id="resourceGrid" class="resource-grid"></div>
@@ -92,7 +51,7 @@
 
             <footer class="app-footer">
                 <p>
-                    海大资源站 · GPLv3 ·
+                    资源站 · GPLv3 ·
                     仅聚合公开入口，具体服务以学校官方页面为准。
                 </p>
             </footer>
@@ -100,17 +59,23 @@
 
         <template id="resourceCardTemplate">
             <article class="resource-card">
-                <div class="resource-meta">
-                    <span class="resource-category"></span>
-                </div>
-                <h4 class="resource-title"></h4>
+                <h3 class="resource-title"></h3>
                 <p class="resource-desc"></p>
-                <a
-                    class="resource-link"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    >打开入口</a
-                >
+                <div class="resource-note"></div>
+                <div class="resource-actions">
+                    <a
+                        class="site-btn dynamic-btn"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >前往动态站</a
+                    >
+                    <a
+                        class="site-btn static-btn"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >前往静态站</a
+                    >
+                </div>
             </article>
         </template>
 

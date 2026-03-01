@@ -1,4 +1,4 @@
-const CACHE_NAME = "smures-v1";
+const CACHE_NAME = "smures-v2";
 const SHELL_FILES = [
   "./",
   "./index.html",
