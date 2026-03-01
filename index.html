@@ -10,18 +10,18 @@
         />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-        <meta name="apple-mobile-web-app-title" content="资源站" />
+        <meta name="apple-mobile-web-app-title" content="海大资源站" />
         <link rel="manifest" href="./manifest.webmanifest" />
         <link rel="icon" href="./icons/avatar.jpg" type="image/jpeg" />
         <link rel="apple-touch-icon" href="./icons/avatar.jpg" />
         <link rel="stylesheet" href="./styles.css" />
-        <title>资源站</title>
+        <title>海大资源站</title>
     </head>
     <body>
         <div class="app">
             <header class="app-bar">
                 <div class="app-bar-inner">
-                    <h1>资源站</h1>
+                    <h1>海大资源站</h1>
                     <form id="searchForm" class="top-search" autocomplete="off">
                         <label for="searchInput" class="sr-only"
                             >搜索资源</label
@@ -30,12 +30,21 @@
                         <input
                             id="searchInput"
                             type="search"
-                            placeholder="搜索资源（如 选课通 / 动态站 / 静态站）"
+                            placeholder="搜索资源"
                         />
                     </form>
-                    <button id="installBtn" class="install-btn" hidden>
-                        安装应用
-                    </button>
+                    <div class="top-actions">
+                        <a
+                            class="github-link"
+                            href="https://github.com/SMU-RES"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            >GitHub</a
+                        >
+                        <button id="installBtn" class="install-btn" hidden>
+                            安装应用
+                        </button>
+                    </div>
                 </div>
             </header>
 
@@ -51,7 +60,7 @@
 
             <footer class="app-footer">
                 <p>
-                    资源站 · GPLv3 ·
+                    海大资源站 · GPLv3 ·
                     仅聚合公开入口，具体服务以学校官方页面为准。
                 </p>
             </footer>

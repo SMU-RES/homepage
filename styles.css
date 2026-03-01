@@ -1,290 +1,316 @@
 :root {
-  --bg: #f4f7ff;
-  --surface: #ffffff;
-  --primary: #1a56db;
-  --primary-dark: #1548b3;
-  --text: #1e1b22;
-  --muted: #62616c;
-  --line: #d7dcee;
-  --radius-lg: 20px;
-  --radius-md: 14px;
-  --shadow-sm: 0 1px 3px rgba(25, 36, 63, 0.12);
-  --shadow-md: 0 8px 22px rgba(26, 86, 219, 0.18);
+    --bg: #f4f7ff;
+    --surface: #ffffff;
+    --primary: #1a56db;
+    --primary-dark: #1548b3;
+    --text: #1e1b22;
+    --muted: #62616c;
+    --line: #d7dcee;
+    --radius-lg: 20px;
+    --radius-md: 14px;
+    --shadow-sm: 0 1px 3px rgba(25, 36, 63, 0.12);
+    --shadow-md: 0 8px 22px rgba(26, 86, 219, 0.18);
 }
 
 *,
 *::before,
 *::after {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 html,
 body {
-  margin: 0;
-  padding: 0;
-  min-height: 100%;
-  font-family: "Microsoft YaHei", "PingFang SC", "Noto Sans SC", sans-serif;
-  color: var(--text);
-  background: radial-gradient(circle at 18% 8%, #eaf3ff 0, var(--bg) 42%);
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+    font-family: "Microsoft YaHei", "PingFang SC", "Noto Sans SC", sans-serif;
+    color: var(--text);
+    background: radial-gradient(circle at 18% 8%, #eaf3ff 0, var(--bg) 42%);
 }
 
 .app {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 .app-bar {
-  position: sticky;
-  top: 0;
-  z-index: 10;
-  background: var(--primary);
-  color: #fff;
-  box-shadow: var(--shadow-sm);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: var(--primary);
+    color: #fff;
+    box-shadow: var(--shadow-sm);
 }
 
 .app-bar-inner {
-  width: min(1060px, 100%);
-  margin: 0 auto;
-  padding: 10px 16px;
-  display: grid;
-  grid-template-columns: auto 1fr auto;
-  gap: 10px;
-  align-items: center;
+    width: min(1060px, 100%);
+    margin: 0 auto;
+    padding: 10px 16px;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 10px;
+    align-items: center;
 }
 
 .app-bar h1 {
-  margin: 0;
-  font-size: 22px;
-  font-weight: 700;
-  letter-spacing: 0.4px;
+    margin: 0;
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 0.4px;
 }
 
 .top-search {
-  height: 42px;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.14);
-  border: 1px solid rgba(255, 255, 255, 0.34);
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 0 12px;
+    height: 42px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.14);
+    border: 1px solid rgba(255, 255, 255, 0.34);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0 12px;
 }
 
 .top-search:focus-within {
-  background: rgba(255, 255, 255, 0.24);
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.55);
+    background: rgba(255, 255, 255, 0.24);
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.55);
 }
 
 .search-icon {
-  opacity: 0.9;
-  font-size: 14px;
+    opacity: 0.9;
+    font-size: 14px;
 }
 
 .top-search input {
-  width: 100%;
-  border: none;
-  outline: none;
-  background: transparent;
-  color: #fff;
-  font-size: 14px;
+    width: 100%;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: #fff;
+    font-size: 14px;
 }
 
 .top-search input::placeholder {
-  color: rgba(255, 255, 255, 0.8);
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.top-actions {
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 8px;
+}
+
+.github-link {
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.14);
+    color: #fff;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 8px 12px;
+    white-space: nowrap;
+}
+
+.github-link:hover {
+    background: rgba(255, 255, 255, 0.26);
 }
 
 .install-btn {
-  border: 1px solid rgba(255, 255, 255, 0.45);
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.14);
-  color: #fff;
-  font-size: 13px;
-  font-weight: 600;
-  padding: 8px 14px;
-  cursor: pointer;
-  white-space: nowrap;
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.14);
+    color: #fff;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 8px 14px;
+    cursor: pointer;
+    white-space: nowrap;
 }
 
 .install-btn:hover {
-  background: rgba(255, 255, 255, 0.26);
+    background: rgba(255, 255, 255, 0.26);
 }
 
 .main-content {
-  width: min(1060px, 100%);
-  margin: 0 auto;
-  padding: 18px 16px 28px;
+    width: min(1060px, 100%);
+    margin: 0 auto;
+    padding: 18px 16px 28px;
 }
 
 .resource-section {
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-sm);
-  padding: 16px;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    padding: 16px;
 }
 
 .section-head {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 8px;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 8px;
 }
 
 .section-head h2 {
-  margin: 0;
-  font-size: 20px;
+    margin: 0;
+    font-size: 20px;
 }
 
 .section-head p {
-  margin: 0;
-  color: var(--muted);
-  font-size: 13px;
+    margin: 0;
+    color: var(--muted);
+    font-size: 13px;
 }
 
 .resource-grid {
-  margin-top: 14px;
-  display: grid;
-  gap: 14px;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    margin-top: 14px;
+    display: grid;
+    gap: 14px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
 }
 
 .resource-card {
-  border: 1px solid #d6ddf1;
-  border-radius: var(--radius-md);
-  background: linear-gradient(180deg, #f8fbff 0%, #eef4ff 100%);
-  box-shadow: 0 5px 16px rgba(26, 86, 219, 0.11);
-  padding: 16px;
-  display: grid;
-  gap: 10px;
+    border: 1px solid #d6ddf1;
+    border-radius: var(--radius-md);
+    background: linear-gradient(180deg, #f8fbff 0%, #eef4ff 100%);
+    box-shadow: 0 5px 16px rgba(26, 86, 219, 0.11);
+    padding: 16px;
+    display: grid;
+    gap: 10px;
 }
 
 .resource-title {
-  margin: 0;
-  font-size: 22px;
+    margin: 0;
+    font-size: 22px;
 }
 
 .resource-desc {
-  margin: 0;
-  color: var(--muted);
-  font-size: 14px;
-  line-height: 1.7;
+    margin: 0;
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.7;
 }
 
 .resource-note {
-  border: 1px solid #d2dcf7;
-  border-radius: 12px;
-  background: #f8fbff;
-  padding: 10px 12px;
-  font-size: 13px;
-  color: #435074;
-  line-height: 1.65;
+    border: 1px solid #d2dcf7;
+    border-radius: 12px;
+    background: #f8fbff;
+    padding: 10px 12px;
+    font-size: 13px;
+    color: #435074;
+    line-height: 1.65;
 }
 
 .resource-note p {
-  margin: 0;
+    margin: 0;
 }
 
 .resource-note p + p {
-  margin-top: 6px;
+    margin-top: 6px;
 }
 
 .resource-actions {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 10px;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
 }
 
 .site-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 42px;
-  border-radius: 10px;
-  font-size: 14px;
-  font-weight: 700;
-  text-decoration: none;
-  border: 1px solid transparent;
-  transition: transform 0.14s ease, box-shadow 0.14s ease, background 0.14s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 42px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+    border: 1px solid transparent;
+    transition:
+        transform 0.14s ease,
+        box-shadow 0.14s ease,
+        background 0.14s ease;
 }
 
 .site-btn:hover {
-  transform: translateY(-1px);
+    transform: translateY(-1px);
 }
 
 .dynamic-btn {
-  background: var(--primary);
-  color: #fff;
-  box-shadow: 0 6px 14px rgba(26, 86, 219, 0.26);
+    background: var(--primary);
+    color: #fff;
+    box-shadow: 0 6px 14px rgba(26, 86, 219, 0.26);
 }
 
 .dynamic-btn:hover {
-  background: var(--primary-dark);
+    background: var(--primary-dark);
 }
 
 .static-btn {
-  background: #f0f4ff;
-  color: #1e4080;
-  border-color: #cbd8f8;
+    background: #f0f4ff;
+    color: #1e4080;
+    border-color: #cbd8f8;
 }
 
 .static-btn:hover {
-  background: #e5eeff;
-  box-shadow: 0 6px 14px rgba(32, 67, 140, 0.13);
+    background: #e5eeff;
+    box-shadow: 0 6px 14px rgba(32, 67, 140, 0.13);
 }
 
 .empty {
-  border: 1px dashed #c3cfeb;
-  border-radius: 12px;
-  padding: 24px 14px;
-  text-align: center;
-  color: #5f6882;
-  background: #fafcff;
+    border: 1px dashed #c3cfeb;
+    border-radius: 12px;
+    padding: 24px 14px;
+    text-align: center;
+    color: #5f6882;
+    background: #fafcff;
 }
 
 .app-footer {
-  margin-top: auto;
-  padding: 14px 16px 24px;
-  color: #6a6574;
-  text-align: center;
-  font-size: 13px;
+    margin-top: auto;
+    padding: 14px 16px 24px;
+    color: #6a6574;
+    text-align: center;
+    font-size: 13px;
 }
 
 .sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
 }
 
 @media (max-width: 760px) {
-  .app-bar-inner {
-    grid-template-columns: 1fr auto;
-    grid-template-areas:
-      "title install"
-      "search search";
-    gap: 8px;
-  }
+    .app-bar-inner {
+        grid-template-columns: 1fr auto;
+        grid-template-areas:
+            "title actions"
+            "search search";
+        gap: 8px;
+    }
 
-  .app-bar h1 {
-    grid-area: title;
-    font-size: 20px;
-  }
+    .app-bar h1 {
+        grid-area: title;
+        font-size: 20px;
+    }
 
-  .install-btn {
-    grid-area: install;
-  }
+    .top-actions {
+        grid-area: actions;
+    }
 
-  .top-search {
-    grid-area: search;
-  }
+    .top-search {
+        grid-area: search;
+    }
 
-  .resource-actions {
-    grid-template-columns: 1fr;
-  }
+    .resource-actions {
+        grid-template-columns: 1fr;
+    }
 }
