@@ -18,7 +18,7 @@ npm run dev
 
 ## 部署（Cloudflare Pages）
 
-1. 首次在 Cloudflare 创建 Pages 项目（项目名建议：`smu-resource-hub`）
+1. 首次在 Cloudflare 创建 Pages 项目（项目名：`smures`）
 2. 在本目录执行：
 
 ```bash
